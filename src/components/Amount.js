@@ -4,16 +4,14 @@ import { Ionicons } from '@expo/vector-icons';
 
 //TODO: Clean up styling
 
-export default Amount = ({ value: initialValue }) => {
-  const [value, setValue] = useState(initialValue);
-
+export default Amount = ({ value }) => {
   return (
     <View style={styles.container}>
       <Text>Amount</Text>
       <View style={styles.content}>
         <Text style={styles.currencySymbol}>$</Text>
         <Text style={styles.amount}>{value}</Text>
-        <Text style={styles.currencyText}>USD</Text>
+        <Ionicons style={styles.backspace} name="backspace-outline" size={32} color="black" />
       </View>
       <View style={styles.separatorLine} />
     </View>
@@ -22,7 +20,7 @@ export default Amount = ({ value: initialValue }) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 30,
+    paddingHorizontal: 20,
     marginVertical: 20
   },
   content: {
@@ -35,18 +33,18 @@ const styles = StyleSheet.create({
     fontSize: 30
   },
   amount: {
-    flex: 2,
+    // flex: 2,
     fontSize: 40,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textAlign: 'right'
   },
-  currencyText: {
-    flex: 1,
-    color: 'gray',
-    fontSize: 20
+  backspace: {
+    marginLeft: 20,
+    marginRight: -10
   },
   separatorLine: {
     marginTop: 10,
     borderBottomColor: 'black',
-    borderBottomWidth: 1,
+    borderBottomWidth: 2,
   }
 });

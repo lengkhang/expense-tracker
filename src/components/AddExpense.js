@@ -9,32 +9,43 @@ import Keypad from './Keypad';
 import { useNavigation } from '@react-navigation/native'
 import { useSelector, useDispatch } from 'react-redux';
 
+//TODO: Move to utils/helper?
 const isNumeric = num => {
   return !isNaN(num);
 }
  
 export default function AddExpense() {
   const navigation = useNavigation();
-  const { subjects } = useSelector(state => state);
   const dispatch = useDispatch();
+  const { subjects } = useSelector(state => state);
+
   let selectedDate = new Date();
-  let enteredAmount = 0;
+  let enteredAmount = '0';
+
+  const [amount, setAmount] = useState(enteredAmount);
 
   const onDateChange = (date) => {
     selectedDate = date;
   };
 
   const onKeyPadTap = (key) => {
-    if (isNumeric(key)) {
+    const amountToDisplay = `${amount}${key}`;
 
+    const allowNumeric = /^\d{1,6}(\.)?(\d{1,2})?$/.test(amountToDisplay);
+    const allowLeadingZeroDecimal = /^0\.(\d{1,2})?$/.test(amountToDisplay);
+    
+    if(allowLeadingZeroDecimal) {
+      setAmount(amountToDisplay);
+    } else if (allowNumeric) {
+      setAmount(amountToDisplay.replace(/^0/, ''));
     }
-
   };
 
+  console.log('==> re-render:', amount);
   return (
     <View style={styles.container}>
       <DatePicker value={selectedDate} onValueChange={onDateChange}/>
-      <Amount value={enteredAmount}/>
+      <Amount value={amount}/>
 
       <View style={styles.input}>
         <Text>Category</Text>
@@ -87,8 +98,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     paddingHorizontal: 20
-    // alignItems: 'center',
-    // justifyContent: 'center',
   },
   input: {
     paddingHorizontal: 20,
