@@ -4,14 +4,18 @@ import { Ionicons } from '@expo/vector-icons';
 
 //TODO: Clean up styling
 
-export default Amount = ({ value }) => {
+export default Amount = ({ value, onBackspace }) => {
+  const onBackspacePress = () => {
+    onBackspace && onBackspace();
+  };
+
   return (
     <View style={styles.container}>
       <Text>Amount</Text>
       <View style={styles.content}>
         <Text style={styles.currencySymbol}>$</Text>
         <Text style={styles.amount}>{value}</Text>
-        <Ionicons style={styles.backspace} name="backspace-outline" size={32} color="black" />
+        <Ionicons style={styles.backspace} onPress={onBackspacePress} name="backspace-outline" size={32} color="black" />
       </View>
       <View style={styles.separatorLine} />
     </View>

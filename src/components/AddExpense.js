@@ -20,15 +20,16 @@ export default function AddExpense() {
   const { subjects } = useSelector(state => state);
 
   let selectedDate = new Date();
-  let enteredAmount = '0';
+  let INITIAL_AMOUNT = '0';
 
-  const [amount, setAmount] = useState(enteredAmount);
+  const [amount, setAmount] = useState(INITIAL_AMOUNT);
 
   const onDateChange = (date) => {
     selectedDate = date;
   };
 
   const onKeyPadTap = (key) => {
+    //TODO: Handle submit
     const amountToDisplay = `${amount}${key}`;
 
     const allowNumeric = /^\d{1,6}(\.)?(\d{1,2})?$/.test(amountToDisplay);
@@ -41,11 +42,17 @@ export default function AddExpense() {
     }
   };
 
+  const onBackspaceAmount = () => {
+    const amountToDisplay = amount.substr(0, amount.length-1) || INITIAL_AMOUNT;
+
+    setAmount(amountToDisplay);
+  }
+
   console.log('==> re-render:', amount);
   return (
     <View style={styles.container}>
       <DatePicker value={selectedDate} onValueChange={onDateChange}/>
-      <Amount value={amount}/>
+      <Amount value={amount} onBackspace={onBackspaceAmount}/>
 
       <View style={styles.input}>
         <Text>Category</Text>
