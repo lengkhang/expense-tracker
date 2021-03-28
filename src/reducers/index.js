@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import subjects from './SubjectsReducer';
+import user from './user';
 import expense from './expense';
 
 const rootReducer = combineReducers({
-  subjects,
+  user,
   expenses: expense
 });
 

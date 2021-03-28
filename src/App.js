@@ -14,7 +14,7 @@ import ExpenseForm from './components/ExpenseForm/ExpenseForm';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { fetchAllSubjects } from './saga';
+import { fetchAllData } from './actions/saga';
 import { NAVIGATION } from './constants/navigation';
 
 const App = () => {
@@ -24,7 +24,7 @@ const App = () => {
     rootReducer,
     composeWithDevTools(applyMiddleware(sagaMiddleware))
   );
-  sagaMiddleware.run(fetchAllSubjects);
+  sagaMiddleware.run(fetchAllData);
 
   return (
     <Provider store={store}>

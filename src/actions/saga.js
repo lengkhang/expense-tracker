@@ -1,4 +1,6 @@
 import { put, takeLatest } from 'redux-saga/effects';
+import { USER_LOADED } from '../constants/user';
+import { APPLICATION_LOADED } from '../constants/application';
 
 function* fetchData() {
   try {
@@ -12,13 +14,13 @@ function* fetchData() {
 
     const data = yield response.json();
 
-    yield put({type: 'RECEIVED_SUBJECTS', data});
+    yield put({type: USER_LOADED, data});
   } catch (err) {
     console.log('==> err:', err);
     yield put({type: 'FETCH_FAILED', message: err.message});
   }
 }
 
-export function* fetchAllSubjects() {
-  yield takeLatest('GET_ALL_SUBJECTS', fetchData);
+export function* fetchAllData() {
+  yield takeLatest(APPLICATION_LOADED, fetchData);
 }
