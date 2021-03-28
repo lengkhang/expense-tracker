@@ -17,14 +17,15 @@ export default MonthlyExpenseWidget = ({ caption, amount }) => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 35,
+    paddingVertical: 35,
+    paddingHorizontal: 15,
     marginVertical: 30,
     backgroundColor: '#F0F8FF'
   },
   title: {
-    fontSize: 50,
+    fontSize: 45,
     fontWeight: 'bold',
-    lineHeight: 50,
+    lineHeight: 45,
     textAlign: 'right'
   },
   subtitle: {
