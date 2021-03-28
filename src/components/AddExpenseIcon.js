@@ -8,7 +8,7 @@ export default AddExpenseIcon = (props) => {
 
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate('Add expense')}
+      onPress={() => navigation.navigate('ExpenseForm')}
       style={{ marginRight: 10 }}>
       <Ionicons name='add' size={32} color='#101010' />
     </TouchableOpacity>

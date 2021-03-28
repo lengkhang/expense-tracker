@@ -8,7 +8,6 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { fetchAllSubjects } from '../actions/SubjectsActions';
 
-import AddExpense from './AddExpense';
 import MonthlyExpenseWidget from './MonthlyExpenseWidget/MonthlyExpenseWidget';
 import ExpenseCard from './ExpenseCard/ExpenseCard';
 import moment from 'moment';

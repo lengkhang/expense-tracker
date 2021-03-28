@@ -11,13 +11,13 @@ import rootReducer from './reducers';
 
 import Dashboard from './components/Dashboard';
 import AddExpenseIcon from './components/AddExpenseIcon';
-import AddExpense from './components/AddExpense';
+import ExpenseForm from './components/ExpenseForm';
 
-//REDUX-SAGA
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { fetchAllSubjects } from './saga';
+import { NAVIGATION } from './constants/navigation';
 
 export default App = () => {
   const Stack = createStackNavigator();
@@ -37,13 +37,13 @@ export default App = () => {
         <NavigationContainer>
           <Stack.Navigator>
             <Stack.Screen
-              name="Dashboard"
+              name={NAVIGATION.DASHBOARD}
               component={Dashboard}
               options={{ headerRight: props => <AddExpenseIcon {...props}/> }}
             />
             <Stack.Screen
-              name="Add expense"
-              component={AddExpense}
+              name={NAVIGATION.ADD_EXPENSE}
+              component={ExpenseForm}
             />
           </Stack.Navigator>
         </NavigationContainer>

@@ -15,10 +15,9 @@ import Category from './Category/Category';
 import { useNavigation } from '@react-navigation/native'
 import { useSelector, useDispatch } from 'react-redux';
 import { addExpense } from '../actions/expense';
+import { NAVIGATION } from '../constants/navigation';
 
-//TODO: Move to utils/helper?
-
-export default function AddExpense() {
+export default ExpenseForm = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const { subjects } = useSelector(state => state);
@@ -51,7 +50,6 @@ export default function AddExpense() {
   };
 
   const canSubmit = () => {
-    console.log('==> can submit:', parseFloat(amount) > 0)
     return parseFloat(amount) > 0;
   };
 
@@ -69,7 +67,7 @@ export default function AddExpense() {
 
     dispatch(addExpense(payload));
 
-    navigation.navigate('Dashboard');
+    navigation.navigate(NAVIGATION.DASHBOARD);
   };
 
   return (
