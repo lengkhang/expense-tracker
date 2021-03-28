@@ -9,6 +9,7 @@ import {
   TouchableRipple,
 } from 'react-native-paper';
 import { CATEGORIES } from './constants';
+import Styles from './styles';
 
 export default Category = ({ title, onSubmit, disabled }) => {
   const firstCategoryKey = Object.keys(CATEGORIES)[0];
@@ -27,14 +28,14 @@ export default Category = ({ title, onSubmit, disabled }) => {
 
     return (
       <TouchableRipple onPress={() => setChecked(key)}>
-        <View style={styles.row}>
+        <View style={Styles.row}>
           <View pointerEvents="none">
             <RadioButton
               value="category"
               status={checked === key ? 'checked' : 'unchecked'}
             />
           </View>
-          <Subheading style={styles.text}>{display}</Subheading>
+          <Subheading style={Styles.text}>{display}</Subheading>
         </View>
       </TouchableRipple>
     );
@@ -68,15 +69,3 @@ export default Category = ({ title, onSubmit, disabled }) => {
     
   );
 };
-
-const styles = StyleSheet.create({
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-  },
-  text: {
-    paddingLeft: 8,
-  },
-});

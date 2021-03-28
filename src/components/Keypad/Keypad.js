@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity, Platform } from 'react-native';
-
 import InputButton from '../InputButton/InputButton';
+import Styles from './styles';
 
 const inputButtons = [
   [1, 2, 3],
@@ -35,7 +35,7 @@ export default Keypad = ({ onKeyTap }) => {
       }
 
       display.push(
-        <View style={styles.inputRow} key={row}>{rowDisplay}</View>
+        <View style={Styles.inputRow} key={row}>{rowDisplay}</View>
       );
     }
 
@@ -43,18 +43,8 @@ export default Keypad = ({ onKeyTap }) => {
   };
 
   return (
-    <View style={styles.inputContainer}>
+    <View style={Styles.inputContainer}>
       {keypadButtons()}
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  inputContainer: {
-    flex: 8
-  },
-  inputRow: {
-    flex: 1,
-    flexDirection: "row",
-  },
-});

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Button, TouchableOpacity } from 'react-native';
 import { TouchableRipple } from 'react-native-paper';
+import Styles from './styles';
 
 export default InputButton = ({ value, onTap }) => {
   const onPress = () => {
@@ -9,25 +10,10 @@ export default InputButton = ({ value, onTap }) => {
 
   return (
     <TouchableRipple
-      style={styles.inputButton}
+      style={Styles.inputButton}
       onPress={onPress}
       rippleColor="rgba(137, 196, 244, 1)">
-        <Text style={styles.inputButtonText}>{value}</Text>
+        <Text style={Styles.inputButtonText}>{value}</Text>
     </TouchableRipple>
   );
 }
-
-const styles = StyleSheet.create({
-  inputButton: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 250,
-    width: '80%',
-    height: '80%'
-  },
-  inputButtonText: {
-    fontSize: 40,
-    fontWeight: 'bold'
-  }
-});

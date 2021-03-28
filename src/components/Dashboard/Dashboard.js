@@ -10,6 +10,7 @@ import { fetchAllSubjects } from '../../actions/SubjectsActions';
 
 import MonthlyExpenseWidget from '../MonthlyExpenseWidget/MonthlyExpenseWidget';
 import ExpenseCard from '../ExpenseCard/ExpenseCard';
+import Styles from './styles';
 import moment from 'moment';
 
 export default function Dashboard() {
@@ -18,7 +19,7 @@ export default function Dashboard() {
   const navigation = useNavigation();
   const { subjects, expenses } = useSelector(state => state);
   const { groupByDate, keysSortByDateDescending: sortedExpenses, totalExpensesThisMonth } = expenses;
-  const { current, sampleUser } = subjects;
+  const { sampleUser } = subjects;
   const dispatch = useDispatch();
 
   const dateFormat = 'DD MMMM YYYY';
@@ -37,8 +38,8 @@ export default function Dashboard() {
   const sampleSortKey = null;// = ["1616860800000", "1616774400000", "1615046400000", "1614441600000"];
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
+    <SafeAreaView style={Styles.container}>
+      <ScrollView style={Styles.scrollView}>
         <Title>Welcome {sampleUser?.first_name},</Title>
 
         <MonthlyExpenseWidget caption="Total expenses this month" amount={`$ ${totalExpensesThisMonth}`} />
@@ -52,7 +53,7 @@ export default function Dashboard() {
                   const { description, category, amount } = expensesForTheDay;
 
                   return (
-                    <View key={`${expensesForTheDay}-${j}`} style={styles.card}>
+                    <View key={`${expensesForTheDay}-${j}`} style={Styles.card}>
                       <ExpenseCard
                         category={category}
                         description={description}
@@ -69,17 +70,3 @@ export default function Dashboard() {
      </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  scrollView: {
-    paddingTop: 20,
-    paddingHorizontal: 15,
-    backgroundColor: '#fff'
-  },
-  card: {
-    marginVertical: 10,
-  }
-});

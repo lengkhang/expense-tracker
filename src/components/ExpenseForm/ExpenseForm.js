@@ -16,6 +16,7 @@ import { useNavigation } from '@react-navigation/native'
 import { useSelector, useDispatch } from 'react-redux';
 import { addExpense } from '../../actions/expense';
 import { NAVIGATION } from '../../constants/navigation';
+import Styles from './styles';
 
 export default ExpenseForm = () => {
   const navigation = useNavigation();
@@ -71,7 +72,7 @@ export default ExpenseForm = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={Styles.container}>
       <DatePicker value={initialDate} onValueChange={date => setSelectedDate(date)}/>
 
       <Card>
@@ -80,9 +81,10 @@ export default ExpenseForm = () => {
         </Card.Content>
       </Card>
       
-      <View style={styles.input}>
+      <View style={Styles.input}>
         <Input
           label="Description"
+          autoCorrect={false}
           onChangeText={text => setDescription(text)}
           leftIcon={
             <SimpleLineIcons name="note" size={24} color="black" />
@@ -90,33 +92,13 @@ export default ExpenseForm = () => {
         />
       </View>
 
-      <View style={styles.keypadContainer}>
+      <View style={Styles.keypadContainer}>
         <Keypad onKeyTap={onKeyPadTap}/>
       </View>
 
-      <View style={styles.button}>
+      <View style={Styles.button}>
         <Category disabled={!canSubmit()} title="Submit" onSubmit={onSubmit}/>
       </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingHorizontal: 20,
-    height: '100%'
-  },
-  input: {
-    paddingHorizontal: 10,
-    marginTop: 40,
-    marginBottom: 20
-  },
-  keypadContainer: {
-    flex: 1
-  },
-  button: {
-    marginBottom: 6
-  }
-});
