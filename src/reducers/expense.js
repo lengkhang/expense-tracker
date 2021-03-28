@@ -13,8 +13,8 @@ export default expense = (state = INITIAL_STATE, action) => {
       const formatedDate = moment(date).format(dateFormat);
 
       const expensesForTheDay = [
-        ...(state.[formatedDate] || []),
-        { date, amount, description, category }
+        { date, amount, description, category },
+        ...(state.[formatedDate] || [])
       ];
 
       return {

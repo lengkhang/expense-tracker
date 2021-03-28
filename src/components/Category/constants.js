@@ -1,25 +1,27 @@
 import * as React from 'react';
 import { MaterialCommunityIcons, Ionicons, FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 
+const ICON_COLOR = 'blue';
+
 export const CATEGORIES = {
   FOOD_AND_DRINK: {
-    value: 'Food & Drink',
-    icons: <MaterialCommunityIcons name="food-fork-drink" size={24} color="black" />
+    display: 'Food & Drink',
+    icon: () => (<MaterialCommunityIcons name="food-fork-drink" size={24} color={ICON_COLOR} />)
   },
   GIFT: {
-    value: 'Gift',
-    icons: <Ionicons name="ios-gift-outline" size={24} color="black" />
+    display: 'Gift',
+    icon: () => (<Ionicons name="ios-gift-outline" size={24} color={ICON_COLOR} />)
   },
   HOUSE: {
-    value: 'House',
-    icons: <FontAwesome5 name="house-user" size={24} color="black" />
+    display: 'House',
+    icon: () => (<FontAwesome5 name="house-user" size={24} color={ICON_COLOR} />)
   },
   CAR: {
-    value: 'Car',
-    icons: <Ionicons name="car-sport-sharp" size={24} color="black" />
+    display: 'Car',
+    icon: () => (<Ionicons name="car-sport-sharp" size={24} color={ICON_COLOR} />)
   },
   GROCERY: {
-    value: 'Grocery',
-    icons: <MaterialIcons name="local-grocery-store" size={24} color="black" />
+    display: 'Grocery',
+    icon: () => (<MaterialIcons name="local-grocery-store" size={24} color={ICON_COLOR} />)
   }
 };

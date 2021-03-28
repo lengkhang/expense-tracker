@@ -11,7 +11,9 @@ import {
 import { CATEGORIES } from './constants';
 
 export default Category = ({ title, onSubmit }) => {
-  const [checked, setChecked] = useState(CATEGORIES.FOOD_AND_DRINK.value);
+  const firstCategoryKey = Object.keys(CATEGORIES)[0];
+
+  const [checked, setChecked] = useState(firstCategoryKey);
   const [show, setShow] = useState(false);
 
   const handleSubmit = () => {
@@ -20,17 +22,19 @@ export default Category = ({ title, onSubmit }) => {
     setShow(false);
   };
 
-  const Option = ({ category }) => {
+  const Option = ({ category: key }) => {
+    const { display } = CATEGORIES[key];
+
     return (
-      <TouchableRipple onPress={() => setChecked(category)}>
+      <TouchableRipple onPress={() => setChecked(key)}>
         <View style={styles.row}>
           <View pointerEvents="none">
             <RadioButton
               value="category"
-              status={checked === category ? 'checked' : 'unchecked'}
+              status={checked === key ? 'checked' : 'unchecked'}
             />
           </View>
-          <Subheading style={styles.text}>{category}</Subheading>
+          <Subheading style={styles.text}>{display}</Subheading>
         </View>
       </TouchableRipple>
     );
@@ -49,7 +53,7 @@ export default Category = ({ title, onSubmit }) => {
             <ScrollView>
               <View>
                 {
-                  Object.keys(CATEGORIES).map(key => <Option key={key} category={CATEGORIES[key].value} />)
+                  Object.keys(CATEGORIES).map(key => <Option key={key} category={key} />)
                 }
               </View>
             </ScrollView>

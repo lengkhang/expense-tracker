@@ -30,7 +30,7 @@ export default function Dashboard() {
 
   console.log('==> sampleUser:', sampleUser);
   console.log('==> Dashboard-expenses:', expenses);
-  const sampleData = {"27 February 2021": [{"amount": "50.25", "category": "second", "date": '2021-02-27T04:19:23.000Z', "description": "High"}], "28 March 2021": [{"amount": "2", "category": "normal", "date": '2021-03-28T04:19:05.325Z', "description": "Aaa"}, {"amount": "9", "category": "normal", "date": '2021-03-28T04:19:12.982Z', "description": "Ghf"}]};
+  const sampleData = {"03 January 2021": [{"amount": "5", "category": "GROCERY", "date": '2021-01-03T08:05:43.000Z', "description": "Highly"}], "20 February 2021": [{"amount": "4", "category": "CAR", "date": '2021-02-20T08:05:24.000Z', "description": "Ugh"}], "28 March 2021": [{"amount": "1", "category": "FOOD_AND_DRINK", "date": '2021-03-28T08:04:58.688Z', "description": "Dfsd"}, {"amount": "2", "category": "GIFT", "date": '2021-03-28T08:05:06.591Z', "description": "Diff"}, {"amount": "3", "category": "HOUSE", "date": '2021-03-28T08:05:14.299Z', "description": "Thug"}]};
 
   return (
     <View style={styles.container}>
