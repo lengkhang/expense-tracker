@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, Button, TouchableOpacity, Platform } from 'reac
 import {Overlay, Header} from 'react-native-elements';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { Ionicons } from '@expo/vector-icons';
-
 import moment from "moment";
 
 //TODO: Clean up styling
@@ -107,13 +106,12 @@ const styles = StyleSheet.create({
     height: 50,
   },
   placeholderStyle: {
-    fontFamily: 'Gill Sans',
     fontSize: 16,
     color: '#CDCDCD',
     marginHorizontal: 10,
   },
   textStyle: {
-    fontFamily: 'Gill Sans',
+    // fontFamily: 'Gill Sans',
     fontSize: 16,
     marginHorizontal: 10,
   }

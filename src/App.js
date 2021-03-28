@@ -1,5 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { Provider as PaperProvider } from 'react-native-paper';
 
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -32,19 +33,21 @@ export default App = () => {
 
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="My expenses"
-            component={Overview}
-            options={{ headerRight: props => <AddExpenseIcon {...props}/> }}
-          />
-          <Stack.Screen
-            name="Add expense"
-            component={AddExpense}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <PaperProvider>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen
+              name="My expenses"
+              component={Overview}
+              options={{ headerRight: props => <AddExpenseIcon {...props}/> }}
+            />
+            <Stack.Screen
+              name="Add expense"
+              component={AddExpense}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </PaperProvider>
     </Provider>
   );
 };

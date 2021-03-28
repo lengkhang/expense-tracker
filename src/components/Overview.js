@@ -13,7 +13,7 @@ export default function Overview() {
   const [count, setCount] = useState({});
 
   const navigation = useNavigation();
-  const { subjects } = useSelector(state => state);
+  const { subjects, expenses } = useSelector(state => state); 
   const { current, sampleUser } = subjects;
   const dispatch = useDispatch();
 
@@ -27,6 +27,7 @@ export default function Overview() {
   }, [subjects.sampleUser.first_name]);
 
   console.log('==> sampleUser:', sampleUser);
+  console.log('==> Dashboard-expenses:', expenses);
 
   return (
     <View style={styles.container}>
@@ -47,7 +48,7 @@ export default function Overview() {
       <Button
         title="Select more subjects"
         onPress={() =>
-          navigation.navigate('AddExpense') //TODO: create a const
+          navigation.navigate('Add expense') //TODO: create a const
         }
       />
     </View>

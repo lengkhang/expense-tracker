@@ -1,6 +1,5 @@
 import React, { useState, Fragment } from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity, Platform } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 
 import InputButton from './InputButton';
 
@@ -10,7 +9,7 @@ const inputButtons = [
   [1, 2, 3],
   [4, 5, 6],
   [7, 8, 9],
-  ['.', 0, 'submit']
+  ['.', 0, '⌫']
 ]
 
 export default Keypad = ({ onKeyTap }) => {
@@ -46,22 +45,13 @@ export default Keypad = ({ onKeyTap }) => {
   };
 
   return (
-    <View style={styles.rootContainer}>
-      <View style={styles.displayContainer}></View>
-        <View style={styles.inputContainer}>
-          {keypadButtons()}
-        </View>
+    <View style={styles.inputContainer}>
+      {keypadButtons()}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  rootContainer: {
-    flex: 1,
-  },
-  displayContainer: {
-    flex: 2
-  },
   inputContainer: {
     flex: 8
   },
