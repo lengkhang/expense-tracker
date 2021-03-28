@@ -24,8 +24,6 @@ export default function Dashboard() {
     fetchData();
   }, [currentUser.first_name]);
 
-  console.log('==> Dashboard-expenses:', totalExpensesThisMonth, groupByDate, sortedExpenses);
-
   return (
     <SafeAreaView style={Styles.container}>
       <ScrollView style={Styles.scrollView}>
