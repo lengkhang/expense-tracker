@@ -52,22 +52,22 @@ export default function AddExpense() {
 
   const onSubmit = (category) => {
     //TODO: Validate
+    const amountInFloat = parseFloat(amount);
 
-    console.log('==> category:', category);
+    if (amountInFloat > 0) {
+      setCategory(category);
 
-    setCategory(category);
-
-    //TODO: Dispatch all data to redux store
-    const payload = {
-      date: selectedDate,
-      amount,
-      category,
-      description
-    };
-
-    dispatch(addExpense(payload));
-
-    navigation.navigate('Dashboard');
+      const payload = {
+        date: selectedDate,
+        amount: amountInFloat,
+        category,
+        description
+      };
+  
+      dispatch(addExpense(payload));
+  
+      navigation.navigate('Dashboard');
+    }    
   };
 
   console.log('==> re-render:', amount, description);

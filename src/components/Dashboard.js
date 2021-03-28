@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchAllSubjects } from '../actions/SubjectsActions';
 
 import AddExpense from './AddExpense';
+import MonthlyExpenseWidget from './MonthlyExpenseWidget/MonthlyExpenseWidget';
 import ExpenseCard from './ExpenseCard/ExpenseCard';
 import moment from 'moment';
 
@@ -37,7 +38,8 @@ export default function Dashboard() {
 
   return (
     <View style={styles.container}>
-      <Text>{sampleUser?.first_name}, you have { subjects.current.length } expenses.</Text>
+      <Text>Welcome {sampleUser?.first_name},</Text>
+      <MonthlyExpenseWidget caption="Total expenses this month" amount={`$ ${totalExpensesThisMonth}`} />
       {
         sortedExpenses.map((date, i) => {
           return (<View key={`${date}-${i}`}>
@@ -86,6 +88,7 @@ export default function Dashboard() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 20,
     paddingHorizontal: 15,
     backgroundColor: '#fff'
   },

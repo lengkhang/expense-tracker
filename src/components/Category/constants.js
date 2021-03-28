@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { MaterialCommunityIcons, Ionicons, FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 
-const ICON_COLOR = 'blue';
+const ICON_COLOR = 'limegreen';
 
 export const CATEGORIES = {
   FOOD_AND_DRINK: {
