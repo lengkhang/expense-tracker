@@ -36,7 +36,7 @@ describe('Render dashboard', () => {
       store = createTestStore();
     });
 
-    it('Show 0 expenses', () => {
+    it('Show total monthly expense = 0', () => {
       const { getByText } = renderScreen(store);
 
       getByText('$ 0');
@@ -57,7 +57,7 @@ describe('Render dashboard', () => {
             ]
           },
           keysSortByDateDescending: ['1614441600000'],
-          totalExpensesThisMonth: '350'
+          totalExpensesThisMonth: 350
         }
       });
     });
@@ -67,6 +67,13 @@ describe('Render dashboard', () => {
 
       getByText('$ 350');
       getByText('Total expenses this month');
+    });
+
+    it('Show all the expenses amount individually', () => {
+      const { getByText } = renderScreen(store);
+
+      getByText('$ 250');
+      getByText('$ 100');
     });
   });
 });
