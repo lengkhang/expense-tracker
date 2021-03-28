@@ -62,25 +62,7 @@ export default function Dashboard() {
             
           </View>);
         })
-
-        // subjects.current.map((subject, index) => (
-        //   <Button
-        //     key={subject}
-        //     title={ `${subject} ${count[subject] || ''}` }
-        //     onPress={() => setCount({
-        //       ...count,
-        //       [subject]: (count[subject] || 0) + 1 }
-        //     )}
-        //   />
-        // ))
       }
-
-      {/* <Button
-        title="Select more subjects"
-        onPress={() =>
-          navigation.navigate('Add expense') //TODO: create a const
-        }
-      /> */}
     </View>
   );
 }

@@ -10,7 +10,7 @@ import {
 } from 'react-native-paper';
 import { CATEGORIES } from './constants';
 
-export default Category = ({ title, onSubmit }) => {
+export default Category = ({ title, onSubmit, disabled }) => {
   const firstCategoryKey = Object.keys(CATEGORIES)[0];
 
   const [checked, setChecked] = useState(firstCategoryKey);
@@ -42,13 +42,13 @@ export default Category = ({ title, onSubmit }) => {
 
   return (
     <View>
-      <Button color="#0000FF" mode="contained" onPress={() => setShow(true)}>
-        Choose category
+      <Button color="#0000FF" mode="contained" disabled={disabled} onPress={() => setShow(true)}>
+        {title}
       </Button>
 
       <Portal>
         <Dialog visible={show}>
-          <Dialog.Title>{title}</Dialog.Title>
+          <Dialog.Title>Choose category</Dialog.Title>
           <Dialog.ScrollArea style={{ maxHeight: 170, paddingHorizontal: 0 }}>
             <ScrollView>
               <View>

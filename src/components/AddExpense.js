@@ -50,27 +50,27 @@ export default function AddExpense() {
     }
   };
 
-  const onSubmit = (category) => {
-    //TODO: Validate
-    const amountInFloat = parseFloat(amount);
-
-    if (amountInFloat > 0) {
-      setCategory(category);
-
-      const payload = {
-        date: selectedDate,
-        amount: amountInFloat,
-        category,
-        description
-      };
-  
-      dispatch(addExpense(payload));
-  
-      navigation.navigate('Dashboard');
-    }    
+  const canSubmit = () => {
+    console.log('==> can submit:', parseFloat(amount) > 0)
+    return parseFloat(amount) > 0;
   };
 
-  console.log('==> re-render:', amount, description);
+  const onSubmit = (category) => {
+    const amountInFloat = parseFloat(amount);
+
+    setCategory(category);
+
+    const payload = {
+      date: selectedDate,
+      amount: amountInFloat,
+      category,
+      description
+    };
+
+    dispatch(addExpense(payload));
+
+    navigation.navigate('Dashboard');
+  };
 
   return (
     <View style={styles.container}>
@@ -97,7 +97,7 @@ export default function AddExpense() {
       </View>
 
       <View style={styles.button}>
-        <Category title="Choose category" onSubmit={onSubmit}/>
+        <Category disabled={!canSubmit()} title="Submit" onSubmit={onSubmit}/>
       </View>
     </View>
   );
@@ -116,11 +116,7 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   keypadContainer: {
-    flex: 1,
-    // alignItems:'center',justifyContent:'center',alignSelf:'stretch'
-    // justifyContent: 'space-between'
-    // alignItems: 'flex-start'
-    // alignSelf: 'baseline'
+    flex: 1
   },
   button: {
     marginBottom: 6
