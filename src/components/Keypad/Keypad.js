@@ -1,9 +1,7 @@
 import React, { useState, Fragment } from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity, Platform } from 'react-native';
 
-import InputButton from './InputButton';
-
-//TODO: Clean up styling
+import InputButton from '../InputButton/InputButton';
 
 const inputButtons = [
   [1, 2, 3],

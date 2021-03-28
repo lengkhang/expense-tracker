@@ -6,10 +6,10 @@ import { Title, Caption } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { fetchAllSubjects } from '../actions/SubjectsActions';
+import { fetchAllSubjects } from '../../actions/SubjectsActions';
 
-import MonthlyExpenseWidget from './MonthlyExpenseWidget/MonthlyExpenseWidget';
-import ExpenseCard from './ExpenseCard/ExpenseCard';
+import MonthlyExpenseWidget from '../MonthlyExpenseWidget/MonthlyExpenseWidget';
+import ExpenseCard from '../ExpenseCard/ExpenseCard';
 import moment from 'moment';
 
 export default function Dashboard() {

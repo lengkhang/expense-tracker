@@ -9,9 +9,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import subjectsReducer from './reducers/SubjectsReducer';
 import rootReducer from './reducers';
 
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/Dashboard/Dashboard';
 import AddExpenseIcon from './components/AddExpenseIcon/AddExpenseIcon';
-import ExpenseForm from './components/ExpenseForm';
+import ExpenseForm from './components/ExpenseForm/ExpenseForm';
 
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';

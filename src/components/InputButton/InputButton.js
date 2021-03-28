@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text, Button, TouchableOpacity } from 'react-native';
 import { TouchableRipple } from 'react-native-paper';
 
-//TODO: Create tap effect
-
 export default InputButton = ({ value, onTap }) => {
   const onPress = () => {
-    // console.log('==> InputButton-onPress:', value);
     onTap(value);
   };
 
@@ -17,10 +14,6 @@ export default InputButton = ({ value, onTap }) => {
       rippleColor="rgba(137, 196, 244, 1)">
         <Text style={styles.inputButtonText}>{value}</Text>
     </TouchableRipple>
-
-    // <TouchableOpacity style={styles.inputButton} onPress={onPress}>
-    //   <Text style={styles.inputButtonText}>{value}</Text>
-    // </TouchableOpacity>
   );
 }
 

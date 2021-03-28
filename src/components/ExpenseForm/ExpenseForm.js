@@ -7,15 +7,15 @@ import { Input } from 'react-native-elements';
 import { SimpleLineIcons } from '@expo/vector-icons';
 import { Card } from 'react-native-paper';
 
-import DatePicker from './DatePicker';
-import Amount from './AmountWidget';
-import Keypad from './Keypad';
-import Category from './Category/Category';
+import DatePicker from '../DatePicker/DatePicker';
+import Amount from '../AmountWidget/AmountWidget';
+import Keypad from '../Keypad/Keypad';
+import Category from '../Category/Category';
 
 import { useNavigation } from '@react-navigation/native'
 import { useSelector, useDispatch } from 'react-redux';
-import { addExpense } from '../actions/expense';
-import { NAVIGATION } from '../constants/navigation';
+import { addExpense } from '../../actions/expense';
+import { NAVIGATION } from '../../constants/navigation';
 
 export default ExpenseForm = () => {
   const navigation = useNavigation();
