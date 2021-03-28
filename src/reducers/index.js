@@ -4,5 +4,5 @@ import expense from './expense';
 
 export default rootReducer = combineReducers({
   subjects,
-  expenses: expense  //TODO: Rename
+  expenses: expense
 });

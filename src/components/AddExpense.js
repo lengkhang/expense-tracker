@@ -65,7 +65,6 @@ export default function AddExpense() {
       description
     };
 
-    console.log('==> dispatch:', payload);
     dispatch(addExpense(payload));
 
     navigation.navigate('Dashboard');

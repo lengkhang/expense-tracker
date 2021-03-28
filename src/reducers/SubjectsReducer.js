@@ -45,7 +45,7 @@ export default subjects = (state = INITIAL_STATE, action) => {
       }
 
     case 'RECEIVED_SUBJECTS':  //REDUX-SAGA
-      console.log('==> action.data.data[0]:', action.data.data[0]);
+      // console.log('==> action.data.data[0]:', action.data.data[0]);
 
       return {
         ...state,

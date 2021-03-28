@@ -11,7 +11,7 @@ export default ExpenseCard = ({ description, category, amount }) => {
       <Card.Title
         title={category}
         subtitle={description}
-        left={(props) => React.createElement(Icon, props)}
+        left={(props) => <Icon {...props} />}
         right={(props) => <Text style={styles.amount}>{`$ ${amount}`}</Text>}
       />
     </Card>
