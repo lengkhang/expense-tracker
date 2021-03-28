@@ -1,22 +1,14 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import { connect } from 'react-redux';
-import { StyleSheet, Text, View, Button, SafeAreaView, ScrollView } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, SafeAreaView, ScrollView } from 'react-native';
 import { Title, Caption } from 'react-native-paper';
-
-import { useNavigation } from '@react-navigation/native';
 import { useSelector, useDispatch } from 'react-redux';
-
 import { fetchAllSubjects } from '../../actions/SubjectsActions';
-
 import MonthlyExpenseWidget from '../MonthlyExpenseWidget/MonthlyExpenseWidget';
 import ExpenseCard from '../ExpenseCard/ExpenseCard';
 import Styles from './styles';
 import moment from 'moment';
 
 export default function Dashboard() {
-  const [count, setCount] = useState({});
-
-  const navigation = useNavigation();
   const { subjects, expenses } = useSelector(state => state);
   const { groupByDate, keysSortByDateDescending: sortedExpenses, totalExpensesThisMonth } = expenses;
   const { sampleUser } = subjects;
@@ -47,7 +39,7 @@ export default function Dashboard() {
           (sampleSortKey || sortedExpenses).map((date, i) => {
             return (<View key={`${date}-${i}`}>
               <Caption>{moment(new Date(parseInt(date))).format(dateFormat)}</Caption>
-              
+
               {
                 (sampleData[date] || groupByDate[date]).map((expensesForTheDay, j) => {
                   const { description, category, amount } = expensesForTheDay;
@@ -60,13 +52,13 @@ export default function Dashboard() {
                         amount={amount}
                       />
                     </View>
-                  )
+                  );
                 })
               }
             </View>);
           })
         }
-       </ScrollView>
-     </SafeAreaView>
+      </ScrollView>
+    </SafeAreaView>
   );
 }

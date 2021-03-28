@@ -1,5 +1,5 @@
-import React, { useState, Fragment } from 'react';
-import { StyleSheet, Text, View, Button, TouchableOpacity, Platform } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
 import InputButton from '../InputButton/InputButton';
 import Styles from './styles';
 
@@ -8,23 +8,21 @@ const inputButtons = [
   [4, 5, 6],
   [7, 8, 9],
   ['.', 0, '⌫']
-]
+];
 
-export default Keypad = ({ onKeyTap }) => {
-  const [show, setShow] = useState(false);
-
+const Keypad = ({ onKeyTap }) => {
   const onTap = (key) => {
-    onKeyTap(key)
+    onKeyTap(key);
   };
 
   const keypadButtons = () => {
     const display = [];
 
-    for (let row=0; row < inputButtons.length; row++) {
+    for (let row = 0; row < inputButtons.length; row++) {
       const rowButtons = inputButtons[0];
       const rowDisplay = [];
 
-      for (let column=0; column < rowButtons.length; column++) {
+      for (let column = 0; column < rowButtons.length; column++) {
         rowDisplay.push(
           <InputButton
             value={inputButtons[row][column]}
@@ -47,4 +45,6 @@ export default Keypad = ({ onKeyTap }) => {
       {keypadButtons()}
     </View>
   );
-}
+};
+
+export default Keypad;

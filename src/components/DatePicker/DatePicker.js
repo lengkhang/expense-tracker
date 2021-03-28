@@ -1,12 +1,12 @@
 import React, { useState, Fragment } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Platform } from 'react-native';
-import {Overlay, Header, Button} from 'react-native-elements';
+import { Text, View, TouchableOpacity, Platform } from 'react-native';
+import { Overlay } from 'react-native-elements';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { Ionicons } from '@expo/vector-icons';
-import moment from "moment";
+import moment from 'moment';
 import Styles from './styles';
 
-export default DatePicker = ({ value, onValueChange }) => {
+const DatePicker = ({ value, onValueChange }) => {
   const dateDisplayFormat = 'dddd, DD MMMM YYYY';
   const [show, setShow] = useState(false);
   const [date, setDate] = useState(value || new Date());
@@ -17,8 +17,8 @@ export default DatePicker = ({ value, onValueChange }) => {
   };
 
   const hideOverlay = () => {
-    setShow(false); 
-  }
+    setShow(false);
+  };
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
@@ -33,15 +33,15 @@ export default DatePicker = ({ value, onValueChange }) => {
   return (
     <View>
       <TouchableOpacity onPress={showOverlay} style={Styles.inputContainerStyle}>
-        <Ionicons name='calendar' size={24} color='#1890ff' />
+        <Ionicons name="calendar" size={24} color="#1890ff" />
         <Text style={Styles.textStyle}>{dateDisplay}</Text>
       </TouchableOpacity>
-      
+
       {
         Platform.OS === 'ios' ? (
           <Overlay isVisible={show} onBackdropPress={hideOverlay} overlayStyle={Styles.overlayStyle}>
             <View style={Styles.headerStyle}>
-              <TouchableOpacity  onPress={hideOverlay}>
+              <TouchableOpacity onPress={hideOverlay}>
                 <Text style={{ paddingHorizontal: 15, color: 'green' }}>Done</Text>
               </TouchableOpacity>
             </View>
@@ -58,7 +58,7 @@ export default DatePicker = ({ value, onValueChange }) => {
         ) : (
           <Fragment>
             {
-              show &&  <DateTimePicker
+              show && <DateTimePicker
                 testID="dateTimePicker"
                 mode="date"
                 value={date}
@@ -66,10 +66,12 @@ export default DatePicker = ({ value, onValueChange }) => {
                 onChange={onChange}
                 style={{ backgroundColor: 'white' }}
               />
-            } 
+            }
           </Fragment>
         )
       }
     </View>
   );
 };
+
+export default DatePicker;

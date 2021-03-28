@@ -2,7 +2,9 @@ import { combineReducers } from 'redux';
 import subjects from './SubjectsReducer';
 import expense from './expense';
 
-export default rootReducer = combineReducers({
+const rootReducer = combineReducers({
   subjects,
   expenses: expense
 });
+
+export default rootReducer;

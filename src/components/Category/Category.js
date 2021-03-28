@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { ScrollView, View, StyleSheet } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import {
   Subheading,
   Button,
   Portal,
   Dialog,
   RadioButton,
-  TouchableRipple,
+  TouchableRipple
 } from 'react-native-paper';
 import { CATEGORIES } from './constants';
 import Styles from './styles';
 
-export default Category = ({ title, onSubmit, disabled }) => {
+const Category = ({ title, onSubmit, disabled }) => {
   const firstCategoryKey = Object.keys(CATEGORIES)[0];
 
   const [checked, setChecked] = useState(firstCategoryKey);
@@ -60,12 +60,15 @@ export default Category = ({ title, onSubmit, disabled }) => {
             </ScrollView>
           </Dialog.ScrollArea>
           <Dialog.Actions>
-            <Button onPress={() => { setShow(false) }}>Cancel</Button>
+            <Button onPress={() => {
+              setShow(false);
+            }}>Cancel</Button>
             <Button onPress={handleSubmit}>Ok</Button>
           </Dialog.Actions>
         </Dialog>
       </Portal>
     </View>
-    
   );
 };
+
+export default Category;

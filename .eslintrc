@@ -81,7 +81,7 @@
     "no-self-compare": "error",
     "no-sequences": "error",
     "no-throw-literal": "error",
-    "no-unused-expressions": "error",
+    "no-unused-expressions": "off",
     "no-useless-call": "error",
     "no-void": "error",
     "no-warning-comments": "off",
@@ -156,9 +156,9 @@
     "react/jsx-uses-vars": "error",
     "react/no-did-mount-set-state": "error",
     "react/no-did-update-set-state": "error",
-    "react/no-multi-comp": "error",
+    "react/no-multi-comp": "off",
     "react/no-unknown-property": "error",
-    "react/prop-types": "error",
+    "react/prop-types": "off",
     "react/sort-comp": [0],
     "react/react-in-jsx-scope": "error",
     "react/self-closing-comp": ["error", { "component": true, "html": false }],
@@ -167,7 +167,7 @@
     // React Native
     "react-native/no-unused-styles": "error",
     "react-native/split-platform-components": "error",
-    "react-native/no-color-literals": "error",
+    "react-native/no-color-literals": "off",
 
     //Jest
     "jest/no-focused-tests": "error",
@@ -182,7 +182,8 @@
   "globals": {
     "BROWSER": true,
     "require": true,
-    "JSON": true
+    "JSON": true,
+    "fetch": true
   },
 
   "plugins": ["react", "react-native","jest"]

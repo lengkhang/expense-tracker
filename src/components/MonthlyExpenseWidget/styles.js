@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-export default styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     paddingVertical: 35,
     paddingHorizontal: 15,
@@ -17,3 +17,5 @@ export default styles = StyleSheet.create({
     textAlign: 'right'
   }
 });
+
+export default styles;

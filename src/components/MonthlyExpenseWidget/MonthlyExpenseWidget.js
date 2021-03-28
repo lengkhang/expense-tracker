@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { Text, StyleSheet } from 'react-native';
 import { Card } from 'react-native-paper';
 import Styles from './styles';
 
-export default MonthlyExpenseWidget = ({ caption, amount }) => {
+const MonthlyExpenseWidget = ({ caption, amount }) => {
   return (
     <Card style={Styles.container}>
       <Card.Title
@@ -15,3 +14,5 @@ export default MonthlyExpenseWidget = ({ caption, amount }) => {
     </Card>
   );
 };
+
+export default MonthlyExpenseWidget;

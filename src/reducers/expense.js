@@ -1,4 +1,4 @@
-import moment from "moment";
+import moment from 'moment';
 import { ADD_EXPENSE } from '../constants/expense';
 
 const INITIAL_STATE = {
@@ -28,8 +28,8 @@ const calculateTotalExpensesForThisMonth = (allExpenses) => {
 
   return total;
 };
- 
-export default expense = (state = INITIAL_STATE, action) => {
+
+const expense = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_EXPENSE:
       const { date, amount, description, category } = action.data;
@@ -48,8 +48,8 @@ export default expense = (state = INITIAL_STATE, action) => {
         [dateTime]: expensesForTheDay
       };
 
-      const sortOrder = Object.keys(groupByDate).sort((a, b) => b-a);
-      
+      const sortOrder = Object.keys(groupByDate).sort((a, b) => b - a);
+
       return {
         ...state,
         groupByDate,
@@ -57,6 +57,8 @@ export default expense = (state = INITIAL_STATE, action) => {
         totalExpensesThisMonth: calculateTotalExpensesForThisMonth(groupByDate)
       };
     default:
-      return state
+      return state;
   }
 };
+
+export default expense;

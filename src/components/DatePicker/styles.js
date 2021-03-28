@@ -1,24 +1,24 @@
 import { StyleSheet } from 'react-native';
 
-export default styles = StyleSheet.create({
+const styles = StyleSheet.create({
   overlayStyle: {
-    flex: 1, 
-    width: '100%', 
-    justifyContent: 'flex-end',  
+    flex: 1,
+    width: '100%',
+    justifyContent: 'flex-end',
     backgroundColor: '#00000066'
   },
   headerStyle: {
-    backgroundColor: 'white', 
-    borderTopLeftRadius: 10, 
-    borderTopRightRadius: 10,  
-    borderColor: '#CDCDCD', 
-    borderBottomWidth: 1, 
-    height: 50, 
-    justifyContent: 'flex-end', 
-    alignItems: 'center', 
+    backgroundColor: 'white',
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    borderColor: '#CDCDCD',
+    borderBottomWidth: 1,
+    height: 50,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
     flexDirection: 'row'
   },
- inputContainerStyle: {
+  inputContainerStyle: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -37,3 +37,5 @@ export default styles = StyleSheet.create({
     marginHorizontal: 10
   }
 });
+
+export default styles;
