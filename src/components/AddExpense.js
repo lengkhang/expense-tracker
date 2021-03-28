@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {
-  Button,
-  Menu
+  Button
 } from 'react-native-paper';
 import { Input } from 'react-native-elements';
 import { SimpleLineIcons } from '@expo/vector-icons';
 import { Card } from 'react-native-paper';
-
-import { addSubject } from '../actions/SubjectsActions';
 
 import DatePicker from './DatePicker';
 import Amount from './Amount';
@@ -32,7 +29,6 @@ export default function AddExpense() {
   const [selectedDate, setSelectedDate] = useState(initialDate);
   const [amount, setAmount] = useState(INITIAL_AMOUNT);
   const [category, setCategory] = useState('Choose category');
-  const [showCategory, setShowCategory] = useState(false);
   const [description, setDescription] = useState('');
 
   const onKeyPadTap = (key) => {
@@ -76,6 +72,7 @@ export default function AddExpense() {
   };
 
   console.log('==> re-render:', amount, description);
+
   return (
     <View style={styles.container}>
       <DatePicker value={initialDate} onValueChange={date => setSelectedDate(date)}/>
@@ -85,19 +82,6 @@ export default function AddExpense() {
           <Amount value={amount}/>
         </Card.Content>
       </Card>
-
-      
-{/* 
-      <Card>
-        <Card.Content>
-          <Input
-            label="Category"
-            leftIcon={
-              <SimpleLineIcons name="note" size={24} color="black" />
-            }
-          />
-        </Card.Content>
-      </Card> */}
       
       <View style={styles.input}>
         <Input
@@ -107,12 +91,6 @@ export default function AddExpense() {
             <SimpleLineIcons name="note" size={24} color="black" />
           }
         />
-        {/* <TextInput
-          mode="outlined"
-          label="Description"
-          value={description}
-          onChangeText={text => setDescription(text)}
-        /> */}
       </View>
 
       <View style={styles.keypadContainer}>
@@ -120,40 +98,10 @@ export default function AddExpense() {
       </View>
 
       <View style={styles.button}>
-        <Category visible={showCategory} close={() => setShowCategory(false)} onSubmit={onSubmit}/>
-        <Button color="#0000FF" mode="contained" onPress={() => setShowCategory(true)}>
-          {category}
-        </Button>
+        <Category title="Choose category" onSubmit={onSubmit}/>
       </View>
     </View>
   );
-
-  /*
-  return (
-    <View style={styles.container}>
-      <Text>Select Subjects Below!</Text>
-
-      {
-        subjects.all_subjects.map((subject, index) => (
-          <Button
-            key={ subject }
-            title={ `Add ${ subject }` }
-            onPress={() =>
-              dispatch(addSubject(index))
-            }
-          />
-        ))
-      }
-
-      <Button
-        title="Back to home"
-        onPress={() =>
-          navigation.navigate('Dashboard')
-        }
-      />
-    </View>
-  );
-  */
 }
 
 const styles = StyleSheet.create({

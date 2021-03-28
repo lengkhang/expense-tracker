@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from 'react';
-import { StyleSheet, Text, View, Button, TouchableOpacity, Platform } from 'react-native';
-import {Overlay, Header} from 'react-native-elements';
+import { StyleSheet, Text, View, TouchableOpacity, Platform } from 'react-native';
+import {Overlay, Header, Button} from 'react-native-elements';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { Ionicons } from '@expo/vector-icons';
 import moment from "moment";
@@ -42,7 +42,7 @@ export default DatePicker = ({ value, onValueChange }) => {
         Platform.OS === 'ios' ? (
           <Overlay isVisible={show} onBackdropPress={hideOverlay} overlayStyle={styles.overlayStyle}>
             <View style={styles.headerStyle}>
-              <TouchableOpacity onPress={hideOverlay}>
+              <TouchableOpacity  onPress={hideOverlay}>
                 <Text style={{ paddingHorizontal: 15, color: 'green' }}>Done</Text>
               </TouchableOpacity>
             </View>
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     flex: 1, 
     width: '100%', 
     justifyContent: 'flex-end',  
-    backgroundColor: '#00000066',
+    backgroundColor: '#00000066'
   },
   headerStyle: {
     backgroundColor: 'white', 
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     height: 50, 
     justifyContent: 'flex-end', 
     alignItems: 'center', 
-    flexDirection: 'row', 
+    flexDirection: 'row'
   },
  inputContainerStyle: {
     flexDirection: 'row',

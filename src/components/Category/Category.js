@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { ScrollView, View, StyleSheet } from 'react-native';
 import {
   Subheading,
@@ -8,80 +8,62 @@ import {
   RadioButton,
   TouchableRipple,
 } from 'react-native-paper';
+import { CATEGORIES } from './constants';
 
-const DialogWithRadioBtns = ({ visible, close, onSubmit }) => {
-  const [checked, setChecked] = React.useState('normal');
+export default Category = ({ title, onSubmit }) => {
+  const [checked, setChecked] = useState(CATEGORIES.FOOD_AND_DRINK.value);
+  const [show, setShow] = useState(false);
 
   const handleSubmit = () => {
     onSubmit && onSubmit(checked);
 
-    close();
+    setShow(false);
+  };
+
+  const Option = ({ category }) => {
+    return (
+      <TouchableRipple onPress={() => setChecked(category)}>
+        <View style={styles.row}>
+          <View pointerEvents="none">
+            <RadioButton
+              value="category"
+              status={checked === category ? 'checked' : 'unchecked'}
+            />
+          </View>
+          <Subheading style={styles.text}>{category}</Subheading>
+        </View>
+      </TouchableRipple>
+    );
   };
 
   return (
-    <Portal>
-      <Dialog onDismiss={close} visible={visible}>
-        <Dialog.Title>Choose an option</Dialog.Title>
-        <Dialog.ScrollArea style={{ maxHeight: 170, paddingHorizontal: 0 }}>
-          <ScrollView>
-            <View>
-              <TouchableRipple onPress={() => setChecked('normal')}>
-                <View style={styles.row}>
-                  <View pointerEvents="none">
-                    <RadioButton
-                      value="normal"
-                      status={checked === 'normal' ? 'checked' : 'unchecked'}
-                    />
-                  </View>
-                  <Subheading style={styles.text}>Option 1</Subheading>
-                </View>
-              </TouchableRipple>
-              <TouchableRipple onPress={() => setChecked('second')}>
-                <View style={styles.row}>
-                  <View pointerEvents="none">
-                    <RadioButton
-                      value="second"
-                      status={checked === 'second' ? 'checked' : 'unchecked'}
-                    />
-                  </View>
-                  <Subheading style={styles.text}>Option 2</Subheading>
-                </View>
-              </TouchableRipple>
-              <TouchableRipple onPress={() => setChecked('third')}>
-                <View style={styles.row}>
-                  <View pointerEvents="none">
-                    <RadioButton
-                      value="third"
-                      status={checked === 'third' ? 'checked' : 'unchecked'}
-                    />
-                  </View>
-                  <Subheading style={styles.text}>Option 3</Subheading>
-                </View>
-              </TouchableRipple>
-              <TouchableRipple onPress={() => setChecked('fourth')}>
-                <View style={styles.row}>
-                  <View pointerEvents="none">
-                    <RadioButton
-                      value="fourth"
-                      status={checked === 'fourth' ? 'checked' : 'unchecked'}
-                    />
-                  </View>
-                  <Subheading style={styles.text}>Option 4</Subheading>
-                </View>
-              </TouchableRipple>
-            </View>
-          </ScrollView>
-        </Dialog.ScrollArea>
-        <Dialog.Actions>
-          <Button onPress={close}>Cancel</Button>
-          <Button onPress={handleSubmit}>Ok</Button>
-        </Dialog.Actions>
-      </Dialog>
-    </Portal>
+    <View>
+      <Button color="#0000FF" mode="contained" onPress={() => setShow(true)}>
+        Choose category
+      </Button>
+
+      <Portal>
+        <Dialog visible={show}>
+          <Dialog.Title>{title}</Dialog.Title>
+          <Dialog.ScrollArea style={{ maxHeight: 170, paddingHorizontal: 0 }}>
+            <ScrollView>
+              <View>
+                {
+                  Object.keys(CATEGORIES).map(key => <Option key={key} category={CATEGORIES[key].value} />)
+                }
+              </View>
+            </ScrollView>
+          </Dialog.ScrollArea>
+          <Dialog.Actions>
+            <Button onPress={() => { setShow(false) }}>Cancel</Button>
+            <Button onPress={handleSubmit}>Ok</Button>
+          </Dialog.Actions>
+        </Dialog>
+      </Portal>
+    </View>
+    
   );
 };
-
-export default DialogWithRadioBtns;
 
 const styles = StyleSheet.create({
   row: {
