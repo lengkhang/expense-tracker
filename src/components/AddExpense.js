@@ -72,7 +72,7 @@ export default function AddExpense() {
     console.log('==> dispatch:', payload);
     dispatch(addExpense(payload));
 
-    navigation.navigate('My expenses');
+    navigation.navigate('Dashboard');
   };
 
   console.log('==> re-render:', amount, description);
@@ -148,7 +148,7 @@ export default function AddExpense() {
       <Button
         title="Back to home"
         onPress={() =>
-          navigation.navigate('My expenses')
+          navigation.navigate('Dashboard')
         }
       />
     </View>

@@ -9,7 +9,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import subjectsReducer from './reducers/SubjectsReducer';
 import rootReducer from './reducers';
 
-import Overview from './components/Overview';
+import Dashboard from './components/Dashboard';
 import AddExpenseIcon from './components/AddExpenseIcon';
 import AddExpense from './components/AddExpense';
 
@@ -37,8 +37,8 @@ export default App = () => {
         <NavigationContainer>
           <Stack.Navigator>
             <Stack.Screen
-              name="My expenses"
-              component={Overview}
+              name="Dashboard"
+              component={Dashboard}
               options={{ headerRight: props => <AddExpenseIcon {...props}/> }}
             />
             <Stack.Screen
