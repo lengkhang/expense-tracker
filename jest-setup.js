@@ -34,4 +34,4 @@ jest.mock('react-native-gesture-handler', () => {
 });
 
 jest.mock('react-native-reanimated', () => {});
-// jest.mock('react-native-tab-view', () => {});
+fetch = jest.fn(() => Promise.resolve());
