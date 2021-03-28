@@ -1,24 +1,15 @@
 import React, { useState, Fragment } from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity, Platform } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 import { Title } from 'react-native-paper';
 
-//TODO: Clean up styling
-
-export default Amount = ({ value, onBackspace }) => {
-  // const onBackspacePress = () => {
-  //   onBackspace && onBackspace();
-  // };
-
+export default AmountWidget = ({ value, onBackspace }) => {
   return (
     <View style={styles.container}>
         <Title style={styles.label}>Amount</Title>
         <View style={styles.content}>
           <Text style={styles.currencySymbol}>$</Text>
           <Text style={styles.amount}>{value}</Text>
-          {/* <Ionicons style={styles.backspace} onPress={onBackspacePress} name="backspace-outline" size={32} color="black" /> */}
         </View>
-      {/* <View style={styles.separatorLine} /> */}
     </View>
   );
 }
@@ -26,9 +17,7 @@ export default Amount = ({ value, onBackspace }) => {
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 20,
-    marginVertical: 20,
-    // borderColor: '#A9A9A9',
-    // borderWidth: 1
+    marginVertical: 20
   },
   label: {
     color: '#A9A9A9',

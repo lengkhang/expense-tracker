@@ -8,7 +8,7 @@ import { SimpleLineIcons } from '@expo/vector-icons';
 import { Card } from 'react-native-paper';
 
 import DatePicker from './DatePicker';
-import Amount from './Amount';
+import Amount from './AmountWidget';
 import Keypad from './Keypad';
 import Category from './Category/Category';
 

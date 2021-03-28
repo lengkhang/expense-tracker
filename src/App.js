@@ -10,7 +10,7 @@ import subjectsReducer from './reducers/SubjectsReducer';
 import rootReducer from './reducers';
 
 import Dashboard from './components/Dashboard';
-import AddExpenseIcon from './components/AddExpenseIcon';
+import AddExpenseIcon from './components/AddExpenseIcon/AddExpenseIcon';
 import ExpenseForm from './components/ExpenseForm';
 
 import { createStore, applyMiddleware } from 'redux';
