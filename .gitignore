@@ -63,9 +63,3 @@ buck-out/
 # Expo
 .expo/*
 web-build/
-
-# Sonarcloud
-.scannerwork
-
-# Test
-coverage/**
