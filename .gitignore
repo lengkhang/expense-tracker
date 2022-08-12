@@ -66,6 +66,3 @@ web-build/
 
 # Sonarcloud	
 .scannerwork
-
-# Test	
-coverage/**
